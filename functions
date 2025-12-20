@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+int multiply(int a,int b,int c){
+    int answer=a*b*c;
+    cout<<answer<<endl;
+    return 0;   
+}
+void printname10times(){
+    for(int i=1;i<=10;i++){
+        cout<<"mannat"<<endl;
+    }
+}
+void printmultiples(int num){
+    for (int i=1;i<=10;i++){
+        cout<<num*i<<endl;
+    }
+}
+int converttocel(int far){
+    int celcius=(far-32)*5/9;
+    return celcius;
+}
+int main(){
+    multiply(9,7,6);
+    printname10times();
+    printmultiples(10);
+    converttocel(30);
+}

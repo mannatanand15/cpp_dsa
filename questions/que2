@@ -1,0 +1,28 @@
+//Write a Cpp program to perform the following operations: Mean,Standard Deviation,Variance 
+#include<stdio.h>
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    float sum,avg=0.0;
+    int variance=0;
+    int deviation;
+    int arr [n];   //declaring array
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+        sum+=arr[i];
+    }
+avg=sum/n;
+cout<<"Mean="<<avg<<endl;
+//fpr calculating variance 
+for(int i=0;i<n;i++){
+variance+=(arr[i]-avg)*(arr[i]-avg);
+}
+variance=variance/n;
+deviation= sqrt(variance);  //calculate standard deviation 
+cout<<"variance="<<variance<<endl;
+cout<<"Standard deviation="<<deviation<<endl;
+return 0;
+}

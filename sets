@@ -1,0 +1,65 @@
+//WAP TO FIND THE UNION,INTERSECTION AND DIFFRENCE OF THE SETS
+
+#include<iostream>
+using namespace std;
+//function to check if the element is present in the array
+bool ispresent(int arr[],int size,int element){
+    for(int i=0;i<size;i++){  //to loop through the array
+        if(arr[i]==element){
+            return true;
+        }
+    }
+    return false;
+}
+int main(){
+    int A[20],int B[20];
+    int n,m;
+    //input set A
+    cout<<"enter number of elements for set A";
+    cin>>n;
+    cout<<"enter elements of set A\n";
+    for(int i=0;i<n;i++){
+        cin>>A[i];
+    }
+    //input set B
+    cout<<"enter the number of elements for set B";
+    cin>>m;
+    cout<<"enter elements of set B\n";
+    for(int i=0;i<m;i++){
+        cin>>B[i];
+    }
+    //UNION
+    cout << "\nUnion: ";
+    int uni[100];
+    int u = 0;
+    // Add all elements of A
+    for (int i = 0; i < n; i++) {
+        uni[u++] = A[i];
+    }
+
+    // Add elements of B if not present in A
+    for (int i = 0; i < m; i++) {
+        if (!isPresent(A, n, B[i])) {
+            uni[u++] = B[i];
+        }
+    }
+
+    for (int i = 0; i < u; i++) {
+        cout << uni[i] << " ";
+    }
+    //INTERSECTION
+    cout << "\nIntersection: ";
+    for (int i = 0; i < n; i++) {
+        if (isPresent(B, m, A[i])) {
+            cout << A[i] << " ";
+        }
+    }
+    //DIFFRENCE
+    cout << "\nDifference (A - B): ";
+    for (int i = 0; i < n; i++) {
+        if (!isPresent(B, m, A[i])) {
+            cout << A[i] << " ";
+        }
+    }
+    return 0;
+}

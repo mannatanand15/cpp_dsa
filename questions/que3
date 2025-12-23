@@ -1,0 +1,39 @@
+// Write a Cpp program to Perform the following operations using function.
+
+// Factorial of Given Number 
+// Fibonacci series of Given Number
+
+
+#include<iostream>
+using namespace std;
+int factorial(int n)
+{
+    int fac=1;
+    for(int i=1;i<=n;i++){
+        fac=fac*i;
+    }
+    return fac;
+}
+void fibonacci(int n)
+{
+    int a=0,b=1,c;
+    cout<<"Fibonacci series:";
+    for(int i=0;i<=n;i++){
+        cout<<a<<" ";
+        c=a+b;
+        a=b;
+        b=c;
+        
+    }
+}
+int main(){
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+
+    cout << "Factorial of " << num << " = " << factorial(num) << endl;
+
+    fibonacci(num);
+
+    return 0;
+}

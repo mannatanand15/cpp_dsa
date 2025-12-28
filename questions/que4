@@ -1,0 +1,53 @@
+//Write a Cpp program to implement the Student Result Processing System ( Students) using the following User defined function.
+//Functions: readMarks(), calculateAverage(), findGrade(), displayResult()
+#include<iostream>
+using namespace std;
+
+// read marks
+void readMarks(int arr[], int size) {
+    for(int i = 0; i < size; i++) {
+        cout << "Enter marks of subject " << i + 1 << ": ";
+        cin >> arr[i];
+    }
+}
+
+// calculate average
+float calculateAverage(int arr[], int size) {
+    int sum = 0;
+    for(int i = 0; i < size; i++) {
+        sum += arr[i];
+    }
+    return (float)sum / size;
+}
+
+// find grade
+char findGrade(float avg) {
+    if(avg >= 90) return 'A';
+    else if(avg >= 75) return 'B';
+    else if(avg >= 60) return 'C';
+    else if(avg >= 50) return 'D';
+    else return 'F';
+}
+
+// display result
+void displayResult(float avg, char grade) {
+    cout << "\nAverage Marks: " << avg << endl;
+    cout << "Grade: " << grade << endl;
+}
+
+int main() {
+    int arr[100];
+    int size;
+
+    cout << "Enter number of subjects: ";
+    cin >> size;
+
+    readMarks(arr, size);
+
+    float avg = calculateAverage(arr, size);
+    char grade = findGrade(avg);
+
+    displayResult(avg, grade);
+
+    return 0;
+}

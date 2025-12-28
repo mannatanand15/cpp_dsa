@@ -1,0 +1,36 @@
+// Write a CPP program to perform linear search a given data from the input array using user defined function. 
+// Search Key: 30
+
+#include<iostream>
+using namespace std;
+int findelement(int arr[],int size,int target){
+    int currentelement;
+    for(int i=0;i<size;i++){
+        currentelement=arr[i];
+        if(currentelement==target){
+            return i;
+        }
+    }
+    return -1;
+}
+int main(){
+    int arr[100];
+    int size;
+    cout<<"enter the size of array:";
+    cin>>size;
+    for (int i=0;i<size;i++){
+        cin>>arr[i];
+    }
+    int target;
+    cout<<"Search key=";
+    cin>>target;
+    int search=findelement(arr,size,target);
+    if ( search != -1){
+        cout<<"The element found at index "<<search;
+    }
+    else{
+        cout<<"The element not found"<<endl;
+    }
+    
+    return 0;
+}

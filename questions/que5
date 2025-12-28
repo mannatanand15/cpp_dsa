@@ -1,0 +1,63 @@
+An electricity board calculates monthly bills for consumers.
+Write a C program using user-defined functions to:
+Read previous and current meter readings
+Calculate total units consumed
+Compute electricity bill based on slab rates
+Display the final bill
+Units Consumed              Rate (₹ per unit)
+First 100                                               ₹1.50
+Next 100                                              ₹2.50
+Above 200                                           ₹4.00
+Sample Input
+Enter previous meter reading: 1250
+Enter current meter reading: 1400
+Sample Output
+----- Electricity Bill -----
+Previous Reading: 1250
+//Current Reading: 1400
+//Units Consumed   : 150.00
+//Total Bill Amount: Rs. 275.00
+
+
+
+#include<iostream>
+using namespace std;
+void readmeter(int &prev,int &current){
+    cout<<"Enter the previous reading:"<<endl;
+    cin>>prev;
+    cout<<"Enter the current reading:"<<endl;
+    cin>>current;
+}
+float calculate(int prev,int current){
+    return current-prev;
+}
+float bill(float units){
+    float amount=0;
+    if (units<=100){
+        amount=units*1.50;
+    }
+    else if(units<=200){
+        amount=(100*1.50)+((units-100)*2.50);
+    }
+    else{
+        amount=(100*1.50)+(100*2.50)+((units-200)*4.00);
+    }
+    return amount;
+}
+void displaybill(int prev,int current,float units,float amount){
+    cout<<"Electricity Bill"<<endl;
+    cout<<"Previous Reading:"<<prev<<endl;
+    cout<<"Current Reading:"<<current<<endl;
+    cout<<"Units Consumed:"<<units<<endl;
+    cout<<"Total Bill Amount:Rs."<<amount<<endl;
+}
+int main(){
+    int prev,current;
+    float units,total,amount;
+    readmeter(prev,current);
+    units=calculate(prev,current);
+    total=bill(units);
+    displaybill(prev,current,units,amount);
+    
+    
+}

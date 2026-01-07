@@ -1,0 +1,35 @@
+//BILL FINAL SALARY CALCULATION QUESTION
+#include<iostream>
+#include<iomanip> //used for formatted output like setprecision()
+using namespace std;
+int main(){
+    int n,id;
+    string name;
+    float hra,basic,pf,da,net;
+    cin>>n;
+    for(int i=0;i<n;i++){
+        //READ EMPLOYEE DETAILS
+        
+        cin>>name;
+        cin>>id;
+        cin>>basic;
+        //SALARY CALCULATIONS
+        
+        hra=0.20*basic;
+        da=0.10*basic;
+        pf=0.12*basic;
+        net=basic+hra+da-pf;
+        //OUTPUT SLIP
+        
+        cout<<"\n----Salary Slip----"<<endl;
+        cout<<"Name    :"<<name<<endl;
+        cout<<fixed<<setprecision(2);
+        cout<<"Basic Salary: Rs."<<basic<<endl;
+        cout<<"HRA    :Rs."<<hra<<endl;
+        cout<<"DA     :Rs."<<da<<endl;
+        cout<<"PF      :Rs."<<pf<<endl;
+        cout<<"------------------------------"<<endl;
+        cout<<"Net Salary   :Rs."<<net<<endl;
+    }
+    return 0;
+}
